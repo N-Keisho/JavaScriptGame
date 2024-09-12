@@ -5,9 +5,9 @@ const speedBar = document.getElementById("speed");
 
 const baseColor = "#ffffff";
 
-let ballX = canvas.width / 2;
-let ballY = 0;
 const ballRadius = 5;
+let ballX = canvas.width / 2;
+let ballY = ballRadius;
 let ballSpeed = 5;
 let dx = ballSpeed;
 let dy = -ballSpeed;
@@ -36,7 +36,7 @@ startButton.addEventListener("click", () => {
     document.location.reload();
 });
 speedBar.addEventListener("input", (e) => {
-  ballSpeed = e.target.value;
+  ballSpeed = Number(e.target.value);
 });
 
 function keyDownHandler(e) {
@@ -125,7 +125,7 @@ function draw() {
 
     dx = -dx;
     ballX = canvas.width / 2;
-    ballY = 0;
+    ballY = ballRadius;
   }
   if (ballY + dy < ballRadius || ballY + dy > canvas.height - ballRadius) {
     dy = -dy;
@@ -146,6 +146,7 @@ function draw() {
   ballY += dy;
   dx = dx > 0 ? ballSpeed : -ballSpeed;
   dy = dy > 0 ? ballSpeed : -ballSpeed;
+  console.log(dx, dy);
 
   if (upPressed && rightPaddleY > 0) rightPaddleY -= 7;
   else if (downPressed && rightPaddleY < canvas.height - paddleHeight)
