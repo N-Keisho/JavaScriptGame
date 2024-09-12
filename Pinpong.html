@@ -7,14 +7,22 @@
             * {
                 margin: 0;
                 padding: 0;
+
             }
             canvas {
-                background : #eee;
+                background : #000;
                 display: block;
                 margin: 0 auto;
             }
+            body{
+                text-align: center;
+            }
         </style>
         <body>
+            <h1>Pong</h1>
             <canvas id="canvas" width="480" height="320"></canvas>
+            <button id="start">Start</button>
+            <input type="range" id="speed" min="1" max="10" value="5">
             <script src="Pingpong.js"></script>
+        </body>
     </head>
